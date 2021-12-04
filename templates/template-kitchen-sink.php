@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Kitchen Sink
- * Theme Name: Snowtakues
+ * Theme Name: Snowtakus
  *
  * @package snowtakus
  */

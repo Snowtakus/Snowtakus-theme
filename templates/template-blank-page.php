@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Blank Page
- * Theme Name: Snowtakues
+ * Theme Name: Snowtakus
  *
  * @package snowtakus
  */

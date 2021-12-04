@@ -1,6 +1,6 @@
 <?php
 /**
- * Snowtakues functions and definitions
+ * Snowtakus functions and definitions
  *
  * @package snowtakus
  */
@@ -9,7 +9,7 @@
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 1200; /* pixels */
+  $content_width = 1200; /* pixels */
 }
 
 if ( ! function_exists( 'snowtakus_setup' ) ) :
@@ -22,58 +22,58 @@ if ( ! function_exists( 'snowtakus_setup' ) ) :
  */
 function snowtakus_setup() {
 
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on _s, use a find and replace
-	 * to change '_s' to the name of your theme in all the template files
-	 */
-	load_theme_textdomain( 'snowtakus', get_template_directory() . '/languages' );
+  /*
+   * Make theme available for translation.
+   * Translations can be filed in the /languages/ directory.
+   * If you're building a theme based on _s, use a find and replace
+   * to change '_s' to the name of your theme in all the template files
+   */
+  load_theme_textdomain( 'snowtakus', get_template_directory() . '/languages' );
 
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+  // Add default posts and comments RSS feed links to head.
+  add_theme_support( 'automatic-feed-links' );
 
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
-	add_theme_support( 'title-tag' );
+  /*
+   * Let WordPress manage the document title.
+   * By adding theme support, we declare that this theme does not use a
+   * hard-coded <title> tag in the document head, and expect WordPress to
+   * provide it for us.
+   */
+  add_theme_support( 'title-tag' );
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
-	 */
-	add_theme_support( 'post-thumbnails' );
+  /*
+   * Enable support for Post Thumbnails on posts and pages.
+   *
+   * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+   */
+  add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', 'snowtakus' ),
-	) );
+  // This theme uses wp_nav_menu() in one location.
+  register_nav_menus( array(
+    'primary' => esc_html__( 'Primary Menu', 'snowtakus' ),
+  ) );
 
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
-	add_theme_support( 'html5', array(
-		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
-	) );
+  /*
+   * Switch default core markup for search form, comment form, and comments
+   * to output valid HTML5.
+   */
+  add_theme_support( 'html5', array(
+    'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
+  ) );
 
-	/*
-	 * Enable support for Post Formats.
-	 * See http://codex.wordpress.org/Post_Formats
-	 */
-	// add_theme_support( 'post-formats', array(
-	// 	'aside', 'image', 'video', 'quote', 'link',
-	// ) );
+  /*
+   * Enable support for Post Formats.
+   * See http://codex.wordpress.org/Post_Formats
+   */
+  // add_theme_support( 'post-formats', array(
+  // 	'aside', 'image', 'video', 'quote', 'link',
+  // ) );
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'snowtakus_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
+  // Set up the WordPress core custom background feature.
+  add_theme_support( 'custom-background', apply_filters( 'snowtakus_custom_background_args', array(
+    'default-color' => 'ffffff',
+    'default-image' => '',
+  ) ) );
 }
 endif; // snowtakus_setup
 add_action( 'after_setup_theme', 'snowtakus_setup' );
@@ -84,51 +84,51 @@ add_action( 'after_setup_theme', 'snowtakus_setup' );
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
 function snowtakus_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'snowtakus' ),
-		'id'            => 'sidebar-1',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
-	register_sidebar( array(
-		'name'          => __( 'Footer 1', 'snowtakus' ),
-		'id'            => 'footer-1',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
-	register_sidebar( array(
-		'name'          => __( 'Footer 2', 'snowtakus' ),
-		'id'            => 'footer-2',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
-	register_sidebar( array(
-		'name'          => __( 'Footer 3', 'snowtakus' ),
-		'id'            => 'footer-3',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
-	register_sidebar( array(
-		'name'          => __( 'Footer 4', 'snowtakus' ),
-		'id'            => 'footer-4',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
+  register_sidebar( array(
+    'name'          => esc_html__( 'Sidebar', 'snowtakus' ),
+    'id'            => 'sidebar-default',
+    'description'   => '',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</aside>',
+    'before_title'  => '<h1 class="widget-title">',
+    'after_title'   => '</h1>',
+  ) );
+  register_sidebar( array(
+    'name'          => __( 'Footer 1', 'snowtakus' ),
+    'id'            => 'footer-1',
+    'description'   => '',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</aside>',
+    'before_title'  => '<h1 class="widget-title">',
+    'after_title'   => '</h1>',
+  ) );
+  register_sidebar( array(
+    'name'          => __( 'Footer 2', 'snowtakus' ),
+    'id'            => 'footer-2',
+    'description'   => '',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</aside>',
+    'before_title'  => '<h1 class="widget-title">',
+    'after_title'   => '</h1>',
+  ) );
+  register_sidebar( array(
+    'name'          => __( 'Footer 3', 'snowtakus' ),
+    'id'            => 'footer-3',
+    'description'   => '',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</aside>',
+    'before_title'  => '<h1 class="widget-title">',
+    'after_title'   => '</h1>',
+  ) );
+  register_sidebar( array(
+    'name'          => __( 'Footer 4', 'snowtakus' ),
+    'id'            => 'footer-4',
+    'description'   => '',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</aside>',
+    'before_title'  => '<h1 class="widget-title">',
+    'after_title'   => '</h1>',
+  ) );
 }
 add_action( 'widgets_init', 'snowtakus_widgets_init' );
 
@@ -136,27 +136,29 @@ add_action( 'widgets_init', 'snowtakus_widgets_init' );
  * Enqueue scripts and styles.
  */
 function snowtakus_scripts() {
-	wp_enqueue_script( 'snowtakus-foundation-what-input-js', get_template_directory_uri() . '/js/foundation/what-input.min.js', array( 'jquery' ), false, true );
+  wp_enqueue_script( 'snowtakus-foundation-what-input-js', get_template_directory_uri() . '/js/foundation/what-input.min.js', array( 'jquery' ), false, true );
 
-	wp_enqueue_script( 'snowtakus-foundation-js', get_template_directory_uri() . '/js/foundation/foundation.min.js', array( 'jquery' ), false, true );
+  wp_enqueue_script( 'snowtakus-foundation-js', get_template_directory_uri() . '/js/foundation/foundation.min.js', array( 'jquery' ), false, true );
 
-	wp_enqueue_script( 'snowtakus-foundation-start-foundation-js', get_template_directory_uri() . '/js/foundation/start-foundation.min.js', array( 'jquery' ), false, true );
+  wp_enqueue_script( 'snowtakus-foundation-start-foundation-js', get_template_directory_uri() . '/js/foundation/start-foundation.min.js', array( 'jquery' ), false, true );
 
-	wp_enqueue_script( 'snowtakus-jquery-mask-js', get_template_directory_uri() . '/js/jquery-mask/jquery-mask.min.js', array( 'jquery' ), false, true );
+  wp_enqueue_script( 'snowtakus-jquery-mask-js', get_template_directory_uri() . '/js/jquery-mask/jquery-mask.min.js', array( 'jquery' ), false, true );
 
-	wp_enqueue_script( 'snowtakus-navigation', get_template_directory_uri() . '/js/navigation.min.js', array(), false, true );
+  wp_enqueue_script( 'snowtakus-navigation', get_template_directory_uri() . '/js/navigation.min.js', array(), false, true );
 
-	wp_enqueue_script( 'snowtakus-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.min.js', array(), false, true );
+  wp_enqueue_script( 'snowtakus-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.min.js', array(), false, true );
 
-	wp_enqueue_style( 'snowtakus-foundation-style', get_template_directory_uri() . '/css/foundation/foundation.min.css' );
+  wp_enqueue_style( 'snowtakus-foundation-style', get_template_directory_uri() . '/css/foundation/foundation.min.css' );
 
-	wp_enqueue_style( 'snowtakus-font-awesome-style', get_template_directory_uri() . '/css/font-awesome/font-awesome.min.css' );
+  wp_enqueue_style( 'snowtakus-font-awesome-style', get_template_directory_uri() . '/css/font-awesome/all.min.css' );
 
-	wp_enqueue_style( 'snowtakus-style', get_stylesheet_uri() );
+  wp_enqueue_style( 'snowtakus-style', get_stylesheet_uri() );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+  wp_enqueue_style( 'snowtakus-scss-style', get_template_directory_uri() . '/scss/css/main.min.css' );
+
+  // if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+  // 	wp_enqueue_script( 'comment-reply' );
+  // }
 }
 add_action( 'wp_enqueue_scripts', 'snowtakus_scripts' );
 
@@ -164,47 +166,11 @@ add_action( 'wp_enqueue_scripts', 'snowtakus_scripts' );
  * Enqueue admin scripts and styles.
  */
 function snowtakus_admin_scripts() {
-	wp_enqueue_style( 'snowtakus-foundation-admin-style', get_template_directory_uri() . '/css/foundation/foundation-grid.min.css' );
+  wp_enqueue_style( 'snowtakus-foundation-admin-style', get_template_directory_uri() . '/css/foundation/foundation-grid.min.css' );
 
-	wp_enqueue_style( 'snowtakus-admin-style', get_template_directory_uri() . '/style-admin.css' );
+  wp_enqueue_style( 'snowtakus-admin-style', get_template_directory_uri() . '/style-admin.css' );
 }
 add_action( 'admin_enqueue_scripts', 'snowtakus_admin_scripts' );
-
-/**
- * Shortcode for foundation grid-container div
- * [grid-container] and [/grid-container]
- *
- * https://codex.wordpress.org/Shortcode_API
- */
-function foundation_grid_container_shortcode( $atts, $content = NULL ) {
-	return '<div class="grid-container">' . do_shortcode( $content ) . '</div>';
-}
-add_shortcode( 'grid-container', 'foundation_grid_container_shortcode' );
-
-/**
- * Shortcode for foundation grid-x div
- * [grid-x] and [/grid-x]
- *
- * https://codex.wordpress.org/Shortcode_API
- */
-function foundation_grid_x_shortcode( $atts, $content = NULL ) {
-	return '<div class="grid-x">' . do_shortcode( $content ) . '</div>';
-}
-add_shortcode( 'grid-x', 'foundation_grid_x_shortcode' );
-
-/**
- * Shortcode for foundation cell div
- * [cell classes="small-12 medium-6 large-4"] and [/cell]
- *
- * https://codex.wordpress.org/Shortcode_API
- */
-function foundation_cell_shortcode( $atts, $content = NULL ) {
-	$attributes = shortcode_atts( array(
-		'classes' => 'small-12',
-	), $atts );
-	return '<div class="' . $attributes['classes'] .' cell">' . do_shortcode( $content ) . '</div>';
-}
-add_shortcode( 'cell', 'foundation_cell_shortcode' );
 
 /**
  * Implement the Custom Header feature.
