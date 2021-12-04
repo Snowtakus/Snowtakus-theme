@@ -5,11 +5,11 @@
  * @package snowtakus
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-	return;
+if ( ! is_active_sidebar( 'sidebar-default' ) ) {
+  return;
 }
 ?>
 
 <div id="sidebar" class="widget-area small-12 large-4 cell" role="complementary">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+  <?php dynamic_sidebar( 'sidebar-default' ); ?>
 </div><!-- #sidebar -->
